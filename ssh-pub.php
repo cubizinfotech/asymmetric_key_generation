@@ -79,12 +79,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="col-sm-6">
                     <label for="privateKey"><b>Private Key:</b></label>
                     <textarea id="privateKey-ED25519" class="form-control mt-2" rows="9" readonly></textarea>
-                    <button class="btn btn-secondary mt-2 copy-btn" data-target="privateKey">Copy Private Key</button>
+                    <button class="btn btn-secondary mt-2 copy-btn" data-target="privateKey-ED25519">Copy Private Key</button>
                 </div>
                 <div class="col-sm-6">
                     <label for="publicKey"><b>Public Key:</b></label>
                     <textarea id="publicKey-ED25519" class="form-control mt-2" rows="9" readonly></textarea>
-                    <button class="btn btn-secondary mt-2 copy-btn" data-target="publicKey">Copy Public Key</button>
+                    <button class="btn btn-secondary mt-2 copy-btn" data-target="publicKey-ED25519">Copy Public Key</button>
                 </div>
             </div>
         </div>
@@ -103,13 +103,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="row">
                 <div class="col-sm-6">
                     <label for="privateKey"><b>Private Key:</b></label>
-                    <textarea id="privateKey" class="form-control mt-2" rows="9" readonly></textarea>
-                    <button class="btn btn-secondary mt-2 copy-btn" data-target="privateKey">Copy Private Key</button>
+                    <textarea id="privateKey-RSA" class="form-control mt-2" rows="9" readonly></textarea>
+                    <button class="btn btn-secondary mt-2 copy-btn" data-target="privateKey-RSA">Copy Private Key</button>
                 </div>
                 <div class="col-sm-6">
                     <label for="publicKey"><b>Public Key:</b></label>
-                    <textarea id="publicKey" class="form-control mt-2" rows="9" readonly></textarea>
-                    <button class="btn btn-secondary mt-2 copy-btn" data-target="publicKey">Copy Public Key</button>
+                    <textarea id="publicKey-RSA" class="form-control mt-2" rows="9" readonly></textarea>
+                    <button class="btn btn-secondary mt-2 copy-btn" data-target="publicKey-RSA">Copy Public Key</button>
                 </div>
             </div>
         </div>
@@ -128,8 +128,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $('#keyForm').submit(function (e) {
                 e.preventDefault();
                 $.post('', { action: 'generate_keys' }, function (data) {
-                    $('#privateKey').val(data.private_key);
-                    $('#publicKey').val(data.public_key);
+                    $('#privateKey-RSA').val(data.private_key);
+                    $('#publicKey-RSA').val(data.public_key);
                 }, 'json');
             });
 
